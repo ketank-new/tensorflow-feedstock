@@ -36,7 +36,8 @@ bazel --bazelrc=$SRC_DIR/tensorflow/tensorflow.bazelrc build \
     --config=opt \
     --config=numa \
     --curses=no \
-    //tensorflow/tools/pip_package:build_pip_package
+    //tensorflow/tools/pip_package:build_pip_package \
+    --local_resources=128000,8,1.0 --jobs=$(expr $(nproc) / 3)
 
 # build a whl file
 mkdir -p $SRC_DIR/tensorflow_pkg
