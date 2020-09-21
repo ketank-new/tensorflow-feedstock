@@ -32,7 +32,7 @@ $SCRIPT_DIR/set_tensorflow_bazelrc.sh $SRC_DIR/tensorflow
 bazel clean --expunge
 bazel shutdown
 
-bazel --bazelrc=$SRC_DIR/tensorflow/tensorflow.bazelrc --host_jvm_args=-Xmx2g --host_jvm_args=-Xms512m build –jobs=2 \
+bazel --bazelrc=$SRC_DIR/tensorflow/tensorflow.bazelrc --host_jvm_args=-Xmx2g --host_jvm_args=-Xms512m build –-jobs=2 \
     --config=opt \
     --config=numa \
     --curses=no \
