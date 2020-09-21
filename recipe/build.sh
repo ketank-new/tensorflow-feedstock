@@ -32,12 +32,11 @@ $SCRIPT_DIR/set_tensorflow_bazelrc.sh $SRC_DIR/tensorflow
 bazel clean --expunge
 bazel shutdown
 
-bazel --bazelrc=$SRC_DIR/tensorflow/tensorflow.bazelrc build \
+bazel --bazelrc=$SRC_DIR/tensorflow/tensorflow.bazelrc --host_jvm_args=-Xmx2g --host_jvm_args=-Xms512m build –jobs=2 \
     --config=opt \
     --config=numa \
     --curses=no \
-    //tensorflow/tools/pip_package:build_pip_package \
-    --local_resources=128000,8,1.0 --jobs=$(expr $(nproc) / 3)
+    //tensorflow/tools/pip_package:build_pip_package 
 
 # build a whl file
 mkdir -p $SRC_DIR/tensorflow_pkg
