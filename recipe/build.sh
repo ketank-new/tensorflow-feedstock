@@ -36,7 +36,7 @@ bazel --bazelrc=$SRC_DIR/tensorflow/tensorflow.bazelrc --host_jvm_args=-Xmx4g --
     --config=opt \
     --config=numa \
     --curses=no \
-    --local_ram_resources=20000 \
+    --local_ram_resources=50000 \
     //tensorflow/tools/pip_package:build_pip_package 
 
 # build a whl file
